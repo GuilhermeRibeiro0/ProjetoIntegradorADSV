@@ -21,29 +21,29 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import br.com.pi.model.ItensPedidos;
-import br.com.pi.repository.ItensPedidosRepository;
+import br.com.pi.model.Pedido;
+import br.com.pi.repository.PedidoRepository;
 
 @RestController
-@RequestMapping("/itenspedidos")
-public class ItensPedidosResource {
-	
+@RequestMapping("/pedido")
+public class PedidoResource {
+
 	@Autowired
-	private ItensPedidosRepository itensPedidosRepository;
+	private PedidoRepository pedidoRepository;
 	
 	@GetMapping
-	public List<ItensPedidos> list(){
-		return itensPedidosRepository.findAll();
+	public List<Pedido> list(){
+		return pedidoRepository.findAll();
 	}
 	
 	@GetMapping("/{id}")
-	public Optional<ItensPedidos> findById(@PathVariable Long id){
-		return itensPedidosRepository.findById(id);
+	public Optional<Pedido> findById(@PathVariable Long id){
+		return pedidoRepository.findById(id);
 	}
 	@PostMapping
-	public ResponseEntity<ItensPedidos> create (@RequestBody ItensPedidos itensPedidos,HttpServletResponse response){
+	public ResponseEntity<Pedido> create (@RequestBody Pedido pedido,HttpServletResponse response){
 		
-		ItensPedidos save = itensPedidosRepository.save(itensPedidos);
+		Pedido save = pedidoRepository.save(pedido);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}").buildAndExpand(save.getId()).toUri();
 		return ResponseEntity.created(uri).body(save);
 	}
@@ -51,14 +51,13 @@ public class ItensPedidosResource {
 	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long id) {
-		itensPedidosRepository.deleteById(id);
+		pedidoRepository.deleteById(id);
 	}
 	@PutMapping("/{id}")
-	public ResponseEntity<ItensPedidos> update(@PathVariable Long id,@RequestBody ItensPedidos itensPedidos){
-		Optional<ItensPedidos> itensBanco = itensPedidosRepository.findById(id);
-		BeanUtils.copyProperties(itensPedidos, itensBanco.get());
-		itensPedidosRepository.save(itensBanco.get());
-		return ResponseEntity.ok(itensPedidos);
+	public ResponseEntity<Pedido> update(@PathVariable Long id,@RequestBody Pedido pedido){
+		Optional<Pedido> pedidoBanco = pedidoRepository.findById(id);
+		BeanUtils.copyProperties(pedido, pedidoBanco.get());
+		pedidoRepository.save(pedidoBanco.get());
+		return ResponseEntity.ok(pedido);
 	}
-
 }
