@@ -22,10 +22,10 @@ public class Cliente {
 	@Column(name = "cliente_cpf")
 	private String cpf;
 	
-	@Column(name = "cliente_cpf")
+	@Column(name = "cliente_telefone")
 	private String telefone;
 	
-	@Column(name = "cliente_cpf")
+	@Column(name = "cliente_email")
 	private String email;
 	
 	public Long getId() {
