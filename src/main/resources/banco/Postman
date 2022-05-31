@@ -18,3 +18,10 @@ endereco
     "estado": "gjojdklf",
     "cep": "gjojdklf"
 }
+
+webuser
+
+{
+    "password":"GUILHERME",
+    "estado": "05000000"
+}

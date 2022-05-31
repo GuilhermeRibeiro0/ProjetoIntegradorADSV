@@ -21,29 +21,31 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import br.com.pi.model.WebUser;
-import br.com.pi.repository.WebUserRepository;
+
+import br.com.pi.model.Produto;
+
+import br.com.pi.repository.ProdutoRepository;
 
 @RestController
-@RequestMapping("/webuser")
-public class WebUserResource {
-	
+@RequestMapping("/produto")
+public class ProdutoResource {
+
 	@Autowired
-	private WebUserRepository webuserRepository;
+	private ProdutoRepository produtoRepository;
 	
 	@GetMapping
-	public List<WebUser> list(){
-		return webuserRepository.findAll();
+	public List<Produto> list(){
+		return produtoRepository.findAll();
 	}
 	
 	@GetMapping("/{id}")
-	public Optional<WebUser> findById(@PathVariable Long id){
-		return webuserRepository.findById(id);
+	public Optional<Produto> findById(@PathVariable Long id){
+		return produtoRepository.findById(id);
 	}
 	@PostMapping
-	public ResponseEntity<WebUser> create (@RequestBody WebUser webUser,HttpServletResponse response){
+	public ResponseEntity<Produto> create (@RequestBody Produto produto,HttpServletResponse response){
 		
-		WebUser save = webuserRepository.save(webUser);
+		Produto save = produtoRepository.save(produto);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}").buildAndExpand(save.getId()).toUri();
 		return ResponseEntity.created(uri).body(save);
 	}
@@ -51,14 +53,13 @@ public class WebUserResource {
 	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long id) {
-		webuserRepository.deleteById(id);
+		produtoRepository.deleteById(id);
 	}
 	@PutMapping("/{id}")
-	public ResponseEntity<WebUser> update(@PathVariable Long id,@RequestBody WebUser webUser){
-		Optional<WebUser> webBanco = webuserRepository.findById(id);
-		BeanUtils.copyProperties(webUser, webBanco.get());
-		webuserRepository.save(webBanco.get());
-		return ResponseEntity.ok(webUser);
+	public ResponseEntity<Produto> update(@PathVariable Long id,@RequestBody Produto produto){
+		Optional<Produto> produtoBanco = produtoRepository.findById(id);
+		BeanUtils.copyProperties(produto, produtoBanco.get());
+		produtoRepository.save(produtoBanco.get());
+		return ResponseEntity.ok(produto);
 	}
-
 }
