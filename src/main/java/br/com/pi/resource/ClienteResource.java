@@ -57,6 +57,7 @@ public class ClienteResource {
 	public ResponseEntity<Cliente> update(@PathVariable Long id,@RequestBody Cliente cliente){
 		Optional<Cliente> clienteBanco = clienteRepository.findById(id);
 		BeanUtils.copyProperties(cliente, clienteBanco.get());
+		clienteRepository.save(clienteBanco.get());
 		return ResponseEntity.ok(cliente);
 	}
 	
