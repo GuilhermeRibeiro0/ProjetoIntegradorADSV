@@ -1,0 +1,20 @@
+cliente
+{
+
+    "id":1,
+    "nome":"GUILHERME",
+    "cpf": "05000000",
+    "telefone":"8455454",
+    "email": "gjojdklf"
+}
+
+endereco
+{
+    "logradouro":"GUILHERME",
+    "numero": "05000000",
+    "complemento":"8455454",
+    "bairro": "gjojdklf",
+    "cidade": "gjojdklf",
+    "estado": "gjojdklf",
+    "cep": "gjojdklf"
+}
