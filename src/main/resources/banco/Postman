@@ -26,4 +26,17 @@ webuser
     "estado": "05000000"
 }
 
-produto
+
+
+{
+    "logradouro": "AB",
+    "numero": "123",
+    "complemento": "47",
+    "bairro": "Genoveva",
+    "cidade": "goiania",
+    "estado": "goias",
+    "cep": "74690000",
+    "cliente": {
+        "id": 1
+    }
+}
