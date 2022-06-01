@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "itenspedidos")
@@ -17,10 +18,13 @@ public class ItensPedidos {
 	private Long id;
 	
 	@Column(name = "pedidos_quantidade")
+	@NotBlank
 	private String quantidade;
 	
 	@Column(name = "pedidos_valor")
+	@NotBlank
 	private Float valorUnitario;
+	
 	public Long getId() {
 		return id;
 	}

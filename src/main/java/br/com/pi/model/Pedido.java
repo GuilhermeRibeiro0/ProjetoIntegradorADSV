@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "pedido")
@@ -19,9 +20,11 @@ public class Pedido {
 	private Long id;
 	
 	@Column(name = "pedido_data")
+	@NotBlank
 	private Date data;
 	
 	@Column(name = "pedido_total")
+	@NotBlank
 	private Float total;
 	
 	@Column(name = "pedido_observacao")

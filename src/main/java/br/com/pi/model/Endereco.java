@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "endereco")
@@ -19,24 +20,31 @@ public class Endereco {
 	private Long id;
 	
 	@Column(name = "end_logradouro")
+	@NotBlank
 	private String logradouro;
 	
 	@Column(name = "end_numero")
+	@NotBlank
 	private String numero;
 	
 	@Column(name = "end_complemento")
+	@NotBlank
 	private String complemento;
 	
 	@Column(name = "end_bairro")
+	@NotBlank
 	private String bairro;
 	
 	@Column(name = "end_cidade")
+	@NotBlank
 	private String cidade;
 	
 	@Column(name = "end_estado")
+	@NotBlank
 	private String estado;
 	
 	@Column(name = "end_cep")
+	@NotBlank
 	private String cep;
 	
 	@ManyToOne

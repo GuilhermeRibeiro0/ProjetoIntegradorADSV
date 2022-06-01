@@ -6,6 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+
+import org.hibernate.validator.constraints.br.CPF;
 
 @Entity
 @Table(name = "cliente")
@@ -17,15 +21,21 @@ public class Cliente {
 	private Long id;
 	
 	@Column(name = "cliente_nome")
+	@NotBlank
 	private String nome;
 	
 	@Column(name = "cliente_cpf")
+	@NotBlank
+	@CPF
 	private String cpf;
 	
 	@Column(name = "cliente_telefone")
+	@NotBlank
 	private String telefone;
 	
 	@Column(name = "cliente_email")
+	@NotBlank
+	@Email
 	private String email;
 	
 	public Long getId() {

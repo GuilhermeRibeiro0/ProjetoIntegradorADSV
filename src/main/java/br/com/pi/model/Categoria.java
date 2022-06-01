@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "categoria")
@@ -19,10 +20,12 @@ public class Categoria {
 	private Long id;
 	
 	@Column(name = "categoria_nome")
+	@NotBlank
 	private String nome;
 	
 	@ManyToOne
 	@JoinColumn(name = "produto_id")
+	@NotBlank
 	private Produto produto;
 	
 	public Produto getProduto() {
