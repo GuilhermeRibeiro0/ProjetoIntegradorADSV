@@ -18,11 +18,11 @@ public class Produto {
 	private Long id;
 	
 	@Column(name = "produto_nome")
-	@NotBlank
+	//@NotBlank
 	private String nome;
 	
 	@Column(name = "produto_preco")
-	@NotBlank
+	//@NotBlank
 	private Float preco;
 	
 	public Long getId() {

@@ -21,21 +21,21 @@ public class Cliente {
 	private Long id;
 	
 	@Column(name = "cliente_nome")
-	@NotBlank
+	//@NotBlank
 	private String nome;
 	
 	@Column(name = "cliente_cpf")
-	@NotBlank
-	@CPF
+	//@NotBlank
+	//@CPF
 	private String cpf;
 	
 	@Column(name = "cliente_telefone")
-	@NotBlank
+	//@NotBlank
 	private String telefone;
 	
 	@Column(name = "cliente_email")
-	@NotBlank
-	@Email
+	//@NotBlank
+	//@Email
 	private String email;
 	
 	public Long getId() {
