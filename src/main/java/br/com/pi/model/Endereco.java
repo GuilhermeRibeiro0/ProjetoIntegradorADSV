@@ -20,31 +20,31 @@ public class Endereco {
 	private Long id;
 	
 	@Column(name = "end_logradouro")
-	@NotBlank
+	//@NotBlank
 	private String logradouro;
 	
 	@Column(name = "end_numero")
-	@NotBlank
+	//@NotBlank
 	private String numero;
 	
 	@Column(name = "end_complemento")
-	@NotBlank
+	//@NotBlank
 	private String complemento;
 	
 	@Column(name = "end_bairro")
-	@NotBlank
+	//@NotBlank
 	private String bairro;
 	
 	@Column(name = "end_cidade")
-	@NotBlank
+	//@NotBlank
 	private String cidade;
 	
 	@Column(name = "end_estado")
-	@NotBlank
+	//@NotBlank
 	private String estado;
 	
 	@Column(name = "end_cep")
-	@NotBlank
+	//@NotBlank
 	private String cep;
 	
 	@ManyToOne
